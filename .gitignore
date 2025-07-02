@@ -1,0 +1,21 @@
+# LazyVim generated files
+lazy-lock.json
+
+# Plugin data
+.repro/
+
+# Backup files
+*.backup
+*~
+
+# Debug logs
+debug.log
+lsp.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local overrides
+local.lua
+.local/
