@@ -5,7 +5,7 @@ Personal Neovim setup based on [LazyVim](https://www.lazyvim.org/) - a Neovim se
 ## Installation
 
 ```bash
-git clone git@github.com:AlexKeyCodes/nvim-config.git
+git clone git@github.com:AlexKeyCodes/neovim.git
 cd nvim-config
 ./install.sh
 ```
