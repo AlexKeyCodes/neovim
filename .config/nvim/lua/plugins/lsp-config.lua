@@ -72,6 +72,7 @@ return {
         "css-lsp",
         "eslint_d",
         "prettier",
+        "htmlbeautifier",
       },
     },
   },
@@ -123,6 +124,7 @@ return {
     opts = {
       formatters_by_ft = {
         ruby = { "rubocop" },
+        eruby = { "htmlbeautifier" }, -- Add this line
         html = { "prettier" },
         css = { "prettier" },
         javascript = { "prettier" },
