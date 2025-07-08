@@ -6,6 +6,7 @@ return {
     priority = 1000,
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
+      transparent_background = true,
     },
   },
   {
@@ -13,6 +14,7 @@ return {
     priority = 1000,
     opts = {
       style = "darker", -- dark, darker, cool, deep, warm, warmer
+      transparent = true,
     },
   },
   -- Configure LazyVim to load your preferred default theme
