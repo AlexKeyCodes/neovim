@@ -52,7 +52,7 @@ brew install neovim stow git curl
 
 3. **Create symlinks using Stow:**
    ```bash
-   stow nvim
+   stow -t ~ nvim
    ```
 
 ### Step 3: First Launch
