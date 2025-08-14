@@ -17,6 +17,17 @@ return {
       transparent = true,
     },
   },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    priority = 1000,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+  },
   -- Configure LazyVim to load your preferred default theme
   {
     "LazyVim/LazyVim",
