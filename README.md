@@ -2,13 +2,74 @@
 
 Personal Neovim setup based on [LazyVim](https://www.lazyvim.org/) - a Neovim setup powered by lazy.nvim.
 
+## Prerequisites
+
+- **Neovim 0.8+** (required for LazyVim compatibility)
+- **Git** - for cloning repositories and plugin management
+- **Curl** - for downloading plugins and dependencies  
+- **Unzip** - for extracting plugin archives
+- **GNU Stow** - for managing configuration symlinks
+
 ## Installation
 
+### Step 1: Install Dependencies
+
+Choose the appropriate command for your operating system:
+
+**Arch Linux:**
 ```bash
-git clone git@github.com:AlexKeyCodes/neovim.git
-cd nvim-config
-./install.sh
+sudo pacman -S --needed neovim stow git curl unzip
 ```
+
+**Fedora/RHEL:**
+```bash
+sudo dnf install -y neovim stow git curl unzip
+```
+
+**Debian/Ubuntu:**
+```bash
+sudo apt update
+sudo apt install -y neovim stow git curl unzip
+```
+
+**macOS:**
+```bash
+brew install neovim stow git curl
+```
+
+### Step 2: Setup Configuration
+
+1. **Backup existing Neovim config** (if you have one):
+   ```bash
+   mv ~/.config/nvim ~/.config/nvim.backup.$(date +%Y%m%d-%H%M%S)
+   ```
+
+2. **Clone this repository:**
+   ```bash
+   git clone git@github.com:AlexKeyCodes/neovim.git
+   cd neovim
+   ```
+
+3. **Create symlinks using Stow:**
+   ```bash
+   stow nvim
+   ```
+
+### Step 3: First Launch
+
+1. **Start Neovim:**
+   ```bash
+   nvim
+   ```
+
+2. **Wait for plugins to install** - LazyVim will automatically download and install all plugins on first launch (this may take a few minutes)
+
+3. **Restart Neovim** after installation completes
+
+4. **Verify setup:**
+   ```bash
+   :checkhealth
+   ```
 
 ## What's Included
 
@@ -16,20 +77,6 @@ cd nvim-config
 - **Custom plugins** and overrides for personal workflow
 - **Language support** for development (LSP, treesitter, etc.)
 - **Modern UI** with telescope, which-key, and more
-
-## Prerequisites
-
-- Neovim 0.8+
-- Git, curl, unzip
-- GNU Stow (auto-installed by script)
-
-## First Time Setup
-
-1. Run the install script: `./install.sh`
-2. Open Neovim: `nvim`
-3. LazyVim will automatically install all plugins (be patient!)
-4. Restart Neovim when installation completes
-5. Run `:checkhealth` to verify everything works
 
 ## Key Features
 
