@@ -28,11 +28,12 @@ return {
       transparent = true,
     },
   },
+  { "Mofiqul/dracula.nvim" },
   -- Configure LazyVim to load your preferred default theme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin", --Change value to load different theme
+      colorscheme = "oxocarbon", --Change value to load different theme
     },
   },
 }
