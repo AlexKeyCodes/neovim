@@ -28,12 +28,18 @@ return {
       transparent = true,
     },
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
   { "Mofiqul/dracula.nvim" },
   -- Configure LazyVim to load your preferred default theme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "oxocarbon", --Change value to load different theme
+      colorscheme = "catppuccin", --Change value to load different theme
     },
   },
 }
