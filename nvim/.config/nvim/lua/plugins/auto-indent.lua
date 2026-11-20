@@ -17,6 +17,26 @@ local function set_indent(lnum, width)
   vim.fn.setline(lnum, indent_str(width) .. line:gsub("^%s*", ""))
 end
 
+-- True when the cursor sits between an opening tag and its own closing tag,
+-- e.g. `<div className="a">|</div>` or `<>|</>`. Deliberately false after a
+-- closing tag (`</span>|</div>`), a self-closing tag (`<br />|</div>`) or an
+-- ERB tag (`<%= x %>|</p>`), where a plain Enter is what's wanted.
+local function between_tags(before, after)
+  local close_name = after:match("^%s*</([%w%.%-:_]*)%s*>")
+  if not close_name or not before:match(">%s*$") or before:match("[/%%]>%s*$") then
+    return false
+  end
+  -- Last thing in `before` that starts a tag: `<name`, `</name` or `<>`.
+  local last
+  for pos in before:gmatch("()<[/%a>]") do
+    last = pos
+  end
+  if not last or before:sub(last + 1, last + 1) == "/" then
+    return false
+  end
+  return before:match("^<([%w%.%-:_]*)", last) == close_name
+end
+
 -- Runs right after the split: cursor is on the new middle line.
 _G.AutoIndentFixSplit = function()
   local lnum = vim.fn.line(".")
@@ -45,7 +65,7 @@ return {
         local line = vim.api.nvim_get_current_line()
         local col = vim.api.nvim_win_get_cursor(0)[2]
         local before, after = line:sub(1, col), line:sub(col + 1)
-        if before:match(">%s*$") and after:match("^%s*</") then
+        if between_tags(before, after) then
           return split .. fix
         end
         local keys = cr(...)
